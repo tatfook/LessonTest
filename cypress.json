@@ -1,0 +1,13 @@
+{
+  "baseUrl": "https://keepwork.com/org/newchild",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "video":false,
+  "integrationFolder":"cypress/integration",
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "results/results-[hash].xml", 
+    "toConsole": true
+  }
+}

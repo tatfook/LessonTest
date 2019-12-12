@@ -1,0 +1,29 @@
+{
+  "name": "lessontest",
+  "version": "0.0.1",
+  "description": "via the cypress verify the Lesson Fuction",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn run report --Record=false "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tatfook/LessonTest.git"
+  },
+  "keywords": [
+    "Cypress"
+  ],
+  "author": "Duke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tatfook/LessonTest/issues"
+  },
+  "homepage": "https://github.com/tatfook/LessonTest#readme",
+  "dependencies": {
+    "cypress": "^3.6.1",
+    "randomstring": "^1.1.5"
+  },
+  "devDependencies": {
+    "randomstring": "^1.1.5"
+  }
+}
