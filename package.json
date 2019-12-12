@@ -4,7 +4,8 @@
   "description": "via the cypress verify the Lesson Fuction",
   "main": "index.js",
   "scripts": {
-    "test": "yarn run report --Record=false "
+    "test": "yarn run report ",
+    "report": "yarn run Cypress run --Record=false "
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   },
   "homepage": "https://github.com/tatfook/LessonTest#readme",
   "dependencies": {
-    "cypress": "^3.6.1",
+    "cypress": "^3.7.0",
     "randomstring": "^1.1.5"
   },
   "devDependencies": {
