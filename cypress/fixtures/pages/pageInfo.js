@@ -14,7 +14,12 @@ let loginpage = {
   "resetpwdbtn": "form > div.el-form-item.org-login-form-operations > div > div:nth-child(1)",
   "logo": "#org-page > div > div.org-login-container > img",    
   "orgname": "#org-page > div > div.org-login-container > div.org-login-name",    
-  "errorMessage": "div[role='alert'] > p"
+  "errorMessage": "div[role='alert'] > p",
+  "language":{
+    "default":" footer > div > div > ul > li:nth-child(6) > span > div > span",
+    "chinese":"ul[id^='dropdown-menu']> li:nth-child(1)",
+    "english":"ul[id^='dropdown-menu']> li:nth-child(2)"
+  }
 }
 
 let mainpage = {

@@ -17,6 +17,8 @@ describe("Lesson sign In test",function () {
         Object.defineProperty(navigator, 'language', { value: 'zh'})          
       }
     })
+    cy.get(pageInfo.loginpage.language.default).click()
+    cy.get(pageInfo.loginpage.language.english).click()   //select the Chinese language
     cy.url().should('eq', testData.testUrl)
     cy.title().should('include', testData.testTitle) 
     cy.wait(500)       
