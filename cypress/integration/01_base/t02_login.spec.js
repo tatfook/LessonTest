@@ -4,7 +4,7 @@
  * Description: Login Test
  */
 
-let testData = require('../../fixtures/data/testData');
+let testData = require('../../fixtures/data/testdata');
 let pageInfo = require('../../fixtures/pages/pageInfo');
 let common  = require('../../common/common');
 let data = '';
@@ -18,7 +18,7 @@ describe("Lesson sign In test",function () {
       }
     })
     cy.get(pageInfo.loginpage.language.default).click()
-    cy.get(pageInfo.loginpage.language.english).click()   //select the Chinese language
+    cy.get(pageInfo.loginpage.language.chinese).click()   //select the Chinese language
     cy.url().should('eq', testData.testUrl)
     cy.title().should('include', testData.testTitle) 
     cy.wait(500)       
