@@ -23,7 +23,7 @@ describe('Lesson sign up test', function () {
     cy.get(pageInfo.registerpage.username).type(testData.signup.invalidaccount.username).should('have.value', testData.signup.invalidaccount.username)
     cy.get(pageInfo.registerpage.password).clear()
     cy.get(pageInfo.registerpage.warningInfo).then((text)=>{
-      expect(text[0].innerText).to.be.eq(testData.signup.expectMsg.sensitiveWarning)
+      expect(text[0].innerText.trim()).to.be.eq(testData.signup.expectMsg.sensitiveWarning)
     })
     
   })  
@@ -34,7 +34,7 @@ describe('Lesson sign up test', function () {
     cy.get(pageInfo.registerpage.username).type(username).should('have.value', username)
     cy.get(pageInfo.registerpage.password).clear()
     cy.get(pageInfo.registerpage.warningInfo).then((text)=>{
-      expect(text[0].innerText).to.be.eq(testData.signup.expectMsg.warningInfo)
+      expect(text[0].innerText.trim()).to.be.eq(testData.signup.expectMsg.warningInfo)
     })
     cy.get(pageInfo.registerpage.closeIcon).click({force:true})
   })
@@ -77,7 +77,7 @@ describe('Lesson sign up test', function () {
     cy.get(pageInfo.registerpage.username).type(testData.signIn.account.username).should('have.value', testData.signIn.account.username)
     cy.get(pageInfo.registerpage.password).click()
     cy.get(pageInfo.registerpage.warningInfo).then((text) => {
-      expect(text[0].innerText).to.be.eq(testData.signup.expectMsg.repeataccount)
+      expect(text[0].innerText.trim()).to.be.eq(testData.signup.expectMsg.repeataccount)
     })
     cy.get(pageInfo.registerpage.closeIcon).click({force:true})
   })
