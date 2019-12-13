@@ -12,7 +12,11 @@ let loginSelector = [pageInfo.loginpage.username,pageInfo.loginpage.password,pag
 let logoutSelector = [pageInfo.mainpage.logout,pageInfo.mainpage.logoutConfirm]
 describe("Lesson sign In test",function () {
   before("visit the login page",function () {
-    cy.visit("/login")
+    cy.visit("/login",{
+      onBeforeLoad: (contentWindow) => {
+        Object.defineProperty(navigator, 'language', { value: 'zh'})          
+      }
+    })
     cy.url().should('eq', testData.testUrl)
     cy.title().should('include', testData.testTitle) 
     cy.wait(500)       

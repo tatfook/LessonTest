@@ -12,7 +12,11 @@ let signupSelector = '';
 
 describe('Lesson sign up test', function () {
   before("visit the organization homepage",function () {
-    cy.visit('/login')
+    cy.visit('/login',{
+      onBeforeLoad: (contentWindow) => {
+        Object.defineProperty(navigator, 'language', { value: 'zh-CN'})          
+      }
+    })
     cy.url().should('eq', testData.testUrl)
     cy.title().should('include', testData.testTitle)
   })
