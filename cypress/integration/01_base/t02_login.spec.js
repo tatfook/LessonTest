@@ -11,10 +11,10 @@ let data = '';
 let loginSelector = [pageInfo.loginpage.username,pageInfo.loginpage.password,pageInfo.loginpage.signinbtn];
 let logoutSelector = [pageInfo.mainpage.logout,pageInfo.mainpage.logoutConfirm]
 describe("Lesson sign In test",function () {
-  before("visit the login page",function () {
+  beforeEach("visit the login page",function () {
     cy.visit("/login",{
       onBeforeLoad: (contentWindow) => {
-        Object.defineProperty(navigator, 'language', { value: 'zh'})          
+        Object.defineProperty(navigator, 'language', { value: 'zh-CN'})          
       }
     })
     cy.get(pageInfo.loginpage.language.default).click()
@@ -24,13 +24,13 @@ describe("Lesson sign In test",function () {
     cy.wait(500)       
   })
 
-  it("login by the wrong keepwork account",function(){
+  it("login by the wrong keepwork account",function(){    
     data = [testData.signIn.invalidaccount.username,testData.signIn.invalidaccount.password]
     common.login(loginSelector, data)   
     common.verifyContent(pageInfo.loginpage.errorMessage,testData.signIn.expectMsg.errorMsg)                
   })
 
-  it("login by the right keepwork account - admin", function () {
+  it("login by the right keepwork account - admin", function () {   
     data = [testData.signIn.account.username, testData.signIn.account.password]
     common.login(loginSelector, data) 
     common.verifyContent(pageInfo.mainpage.roles.admin,testData.signIn.expectMsg.checkStateAdmin)

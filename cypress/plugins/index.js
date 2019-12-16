@@ -23,12 +23,11 @@ module.exports = (on, config) => {
       return args;
     }
     if (browser.name === "electron") {       
-           
-      try {
-        app = require("electron").app;
-        app.commandLine.appendSwitch("lang","zh");
-               
-      } catch (error) {}
+      //it's not work
+      // try {
+      //   app = require("electron").app;
+      //   app.commandLine.appendSwitch("lang","zh");               
+      // } catch (error) {}
      
     }
   });

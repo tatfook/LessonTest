@@ -19,6 +19,8 @@ let renamesite = 'new'
 describe("the package content verification", function () {
   before("login by amdin", function () {
     cy.visit("/login")
+    cy.get(pageInfo.loginpage.language.default).click()
+    cy.get(pageInfo.loginpage.language.chinese).click() 
     cy.url().should('eq', testData.testUrl)
     cy.title().should('include', testData.testTitle) 
     cy.wait(500)     
