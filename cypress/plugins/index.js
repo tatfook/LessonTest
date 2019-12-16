@@ -22,5 +22,14 @@ module.exports = (on, config) => {
       args.push("--disable-site-isolation-trials");
       return args;
     }
+    if (browser.name === "electron") {       
+           
+      try {
+        app = require("electron").app;
+        app.commandLine.appendSwitch("lang","zh");
+               
+      } catch (error) {}
+     
+    }
   });
 }
