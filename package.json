@@ -4,8 +4,10 @@
   "description": "via the cypress verify the Lesson Fuction",
   "main": "index.js",
   "scripts": {
-    "test": "yarn run report ",
-    "report": "yarn run Cypress run --Record=false "
+    "debug":"yarn run cypress open",
+    "testBychrome": "yarn run report",
+    "test":"yarn run cypress run ",
+    "report": "yarn run cypress run --record=false --browser=chrome --headless"
   },
   "repository": {
     "type": "git",

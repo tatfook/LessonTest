@@ -11,7 +11,7 @@ let data = '';
 let loginSelector = [pageInfo.loginpage.username,pageInfo.loginpage.password,pageInfo.loginpage.signinbtn];
 let logoutSelector = [pageInfo.mainpage.logout,pageInfo.mainpage.logoutConfirm]
 describe("Lesson sign In test",function () {
-  before("visit the login page",function () {
+  beforeEach("visit the login page",function () {
     cy.visit("/index",{
       onBeforeLoad: (contentWindow) => {
         Object.defineProperty(navigator, 'language', { value: 'zh-CN'})          
@@ -25,15 +25,16 @@ describe("Lesson sign In test",function () {
   })
 
   it("login by the wrong keepwork account",function(){   
-    cy.get(pageInfo.loginpage.loginBtn).click()  
     data = [testData.signIn.invalidaccount.username,testData.signIn.invalidaccount.password]
+    cy.get(pageInfo.loginpage.loginBtn).click() 
     common.login(loginSelector, data)   
     common.verifyContent(pageInfo.loginpage.errorMessage,testData.signIn.expectMsg.errorMsg)                
   })
 
   it("login by the right keepwork account - admin", function () {   
     data = [testData.signIn.account.username, testData.signIn.account.password]
-    common.login(loginSelector, data) 
+    cy.get(pageInfo.loginpage.loginBtn).click()  
+    common.login(loginSelector, data)     
     common.verifyContent(pageInfo.mainpage.roles.admin,testData.signIn.expectMsg.checkStateAdmin)
     common.logout(logoutSelector)
   })
