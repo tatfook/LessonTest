@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/tatfook/LessonTest#readme",
   "dependencies": {
-    "cypress": "^3.7.0",
+    "cypress": "^4.3.0",
     "randomstring": "^1.1.5"
   },
   "devDependencies": {

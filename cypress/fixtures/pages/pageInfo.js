@@ -7,16 +7,20 @@
 
 
 let loginpage = {
-  "username": "#org-page > div > div.org-login-container > form > div:nth-child(2) > div > div > input",
-  "password": "#org-page > div > div.org-login-container > form > div:nth-child(3) > div > div > input",  
+  "loginBtn":"div.org-header > ul > li:nth-child(3)",
+  "username": "form > div:nth-child(2) > div > div > input",
+  "password": "form > div:nth-child(3) > div > div > input",  
   "signinbtn": "form > div:nth-child(4) > div > button",
-  "signupbtn": "form > div.el-form-item.org-login-form-operations > div > div:nth-child(2) > span",
-  "resetpwdbtn": "form > div.el-form-item.org-login-form-operations > div > div:nth-child(1)",
-  "logo": "#org-page > div > div.org-login-container > img",    
-  "orgname": "#org-page > div > div.org-login-container > div.org-login-name",    
+  "signupbtn": "form > div.el-form-item.operations > div > div:nth-child(2) > span",
+  "resetpwdbtn": "form > div.el-form-item.operations > div > div:nth-child(1)",
+  "logo": "#org-page > div > div.org-login-container > img#org-page > div > div.org-header > ul > li:nth-child(1) >img",    
+  "orgname": "#org-page > div > div.org-header > ul > li:nth-child(2)",    
   "errorMessage": "div[role='alert'] > p",
+  "alertWindow":{
+    "Close":"body > div[class$='encrypt'] > div > div.el-dialog__header > button"
+  },
   "language":{
-    "default":" footer > div > div > ul > li:nth-child(6) > span > div > span",
+    "default":"footer > div > div > ul > li:nth-child(6) > span > div > span",
     "chinese":"ul[id^='dropdown-menu']> li:nth-child(1)",
     "english":"ul[id^='dropdown-menu']> li:nth-child(2)"
   }
@@ -54,7 +58,7 @@ let registerpage = {
   "error_notification": "div[role$='alert'] > p",
   "warningInfo": "form > div:nth-child(2) > div > div.el-form-item__error",
   "repeattext": "div.text-danger.ng-binding",
-  "closeIcon":"div.el-dialog__body > i[class$='close']"
+  "closeIcon":"#org-page > div > div.org-header > div > div > div > div.el-dialog__header > button "
 }
 
 module.exports = {registerpage, loginpage, mainpage};

@@ -14,13 +14,13 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  on("before:browser:launch", (browser = {}, args) => {
+  on("before:browser:launch", (browser = {}, launchOptions) => {
     if (browser.name === "chrome") { 
       //args.push('--start-fullscreen')
-      args.push("--lang=zh")
-      args.push("--headless")
-      args.push("--disable-site-isolation-trials");
-      return args;
+      launchOptions.args.push("--lang=zh")
+      //launchOptions.args.push("--headless")
+      launchOptions.args.push("--disable-site-isolation-trials");
+      return launchOptions;
     }
     if (browser.name === "electron") {       
       //it's not work

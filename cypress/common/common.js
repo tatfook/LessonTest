@@ -4,7 +4,7 @@
  * Description: provide the common method
  */
 let randomStr = require('randomstring');
-let isChecked = false;
+
 /** 引入第三方库，随意生成数据
  * @length  - define the length of the random string
  * @charset - define the character set for the string. (default: 'alphanumeric') 
@@ -93,10 +93,7 @@ function signup(selectors, data) {
     cy.get(testelements[4]).click({force:true})                           
     cy.get(testelements[5]).clear()
     cy.get(testelements[5]).type(testdata[4]).should('have.value', testdata[4])
-    if(!isChecked){
-      cy.get(testelements[6]).click() 
-      isChecked = true
-    }    
+    cy.get(testelements[6]).click({force:true}) 
     cy.wait(500)             
     cy.get(testelements[7]).click() 
       

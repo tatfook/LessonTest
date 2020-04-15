@@ -11,8 +11,8 @@ let data = '';
 let loginSelector = [pageInfo.loginpage.username,pageInfo.loginpage.password,pageInfo.loginpage.signinbtn];
 let logoutSelector = [pageInfo.mainpage.logout,pageInfo.mainpage.logoutConfirm]
 describe("Lesson sign In test",function () {
-  beforeEach("visit the login page",function () {
-    cy.visit("/login",{
+  before("visit the login page",function () {
+    cy.visit("/index",{
       onBeforeLoad: (contentWindow) => {
         Object.defineProperty(navigator, 'language', { value: 'zh-CN'})          
       }
@@ -24,7 +24,8 @@ describe("Lesson sign In test",function () {
     cy.wait(500)       
   })
 
-  it("login by the wrong keepwork account",function(){    
+  it("login by the wrong keepwork account",function(){   
+    cy.get(pageInfo.loginpage.loginBtn).click()  
     data = [testData.signIn.invalidaccount.username,testData.signIn.invalidaccount.password]
     common.login(loginSelector, data)   
     common.verifyContent(pageInfo.loginpage.errorMessage,testData.signIn.expectMsg.errorMsg)                
@@ -39,6 +40,7 @@ describe("Lesson sign In test",function () {
 
   it("switch admin to teacher", function () {
     data = [testData.signIn.account.username, testData.signIn.account.password]
+    cy.get(pageInfo.loginpage.loginBtn).click() 
     common.login(loginSelector, data)  
     common.switchRoles([pageInfo.mainpage.roles.admin,pageInfo.mainpage.roles.selectTeacher])
     cy.wait(300)
@@ -48,6 +50,7 @@ describe("Lesson sign In test",function () {
 
   it("switch admin to student", function () {
     data = [testData.signIn.account.username, testData.signIn.account.password]
+    cy.get(pageInfo.loginpage.loginBtn).click() 
     common.login(loginSelector, data)  
     common.switchRoles([pageInfo.mainpage.roles.admin,pageInfo.mainpage.roles.selectStudent])
     cy.wait(300)
@@ -56,14 +59,16 @@ describe("Lesson sign In test",function () {
   })
 
   it("login by the cellphone Number - admin", function () {
-    data = [testData.signIn.bindaccount.mobile, testData.signIn.account.password]    
+    data = [testData.signIn.bindaccount.mobile, testData.signIn.account.password]  
+    cy.get(pageInfo.loginpage.loginBtn).click()   
     common.login(loginSelector, data)        
     common.verifyContent(pageInfo.mainpage.roles.admin,testData.signIn.expectMsg.checkStateAdmin)
     common.logout(logoutSelector)
   })
 
   it("login by the bounded email - admin", function () {
-    data = [testData.signIn.bindaccount.email, testData.signIn.account.password]    
+    data = [testData.signIn.bindaccount.email, testData.signIn.account.password]   
+    cy.get(pageInfo.loginpage.loginBtn).click()  
     common.login(loginSelector, data)        
     common.verifyContent(pageInfo.mainpage.roles.admin,testData.signIn.expectMsg.checkStateAdmin)
     common.logout(logoutSelector)

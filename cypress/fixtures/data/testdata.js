@@ -7,7 +7,7 @@
 'use strict';
 
 const Info = {
-  testUrl: 'https://keepwork.com/org/newchild/login',
+  testUrl: 'https://keepwork.com/org/newchild/index',
   testTitle:'KeepWork',  
   signup: {
     emptyaccount: {
